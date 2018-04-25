@@ -1,0 +1,198 @@
+@import "colors/palette";
+@import "compass";
+
+* {
+  @include box-sizing(border-box);
+}
+
+button, [role="button"], [role="link"], a, select {
+  &:focus {
+    @include box-shadow(0 0 0 2px rgba(2, 117, 216, .5));
+  }
+}
+
+a {
+  color: get_map_item($orange, 'Orange');
+  text-decoration: none;
+  &:hover, &:focus {
+    color: get_map_item($blue, 'lighterBlue');
+    text-decoration: none;
+  }
+  & img {
+    border: none 0 get_map_item($white, 'White');
+  }
+}
+
+ul, li {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+table {
+  text-align: left;
+}
+
+body {
+  background-color: get_map_item($white, 'almostWhite');
+  margin: 0;
+  position: relative;
+
+  &, td, th, p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 0 20px;
+}
+
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+#maincontent {
+  background-color: get_map_item($white, 'quiteWhite');
+  min-height: 100%;
+}
+
+#footer {
+  background-color: get_map_item($black, 'Graphite');
+  color: get_map_item($white, 'Gray');
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 25px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 479px) {
+  .inside {
+
+    #breadcrumb {
+      width: 100% !important;
+      & li {
+        & a {
+          font-size: 1rem;
+        }
+      }
+    }
+    #menu-label {
+      display: block !important;
+      text-align: center;
+    }
+    header {
+      position: relative !important;
+    }
+    #restaurant-container h1, #restaurant-container p:nth-of-type(2), #restaurant-container table {
+      padding: 0 17px !important;
+    }
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 619px) {
+  #filter-results {
+    .filter-options {
+
+      & label, & select {
+        min-width: 50%;
+      }
+    }
+  }
+  .inside {
+    #restaurant-container, #reviews-container {
+      padding: 0 10px !important;
+      width: 100% !important;
+    }
+    #map-container {
+      height: calc(100vh - 130px) !important;
+      width: 100% !important;
+      position: relative !important;
+      top: 0 !important;
+    }
+    #footer {
+      position: relative !important;
+      width: 100% !important;
+    }
+  }
+}
+
+@media screen and (min-width: 620px) and (max-width: 671px) {
+  #filter-results {
+    .filter-options {
+      & label, & select {
+        width: 50% !important;
+        min-width: 50%;
+      }
+    }
+  }
+  .inside {
+    #restaurant-container {
+      padding-top: 130px !important;
+    }
+    #restaurant-img {
+      width: 100% !important;
+    }
+    #restaurant-cuisine {
+      width: 100% !important;
+    }
+  }
+}
+
+@media screen and (max-width: 671px) {
+  .inside {
+    #map-container {
+      width: 100% !important;
+      position: relative !important;
+      height: calc(100vh - 130px) !important;
+      top: 0 !important;
+    }
+    #breadcrumb {
+      width: 100% !important;
+    }
+    #restaurant-container, #reviews-container {
+      width: 100% !important;
+    }
+    #reviews-container h2 {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    #footer {
+      position: relative !important;
+      width: 100% !important;
+    }
+  }
+}
+
+@media screen and (min-width: 672px) {
+  .inside {
+    #restaurant-container {
+      padding-top: 130px !important;
+    }
+  }
+}
+
+@media screen and (min-width: 672px) and (max-width: 719px) {
+  #filter-results {
+    .filter-options {
+      & select {
+        min-width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 720px) {
+  #filter-results {
+    .filter-options {
+      display: table !important;
+      & h2 {
+        margin-bottom: 5px !important;
+      }
+    }
+  }
+}

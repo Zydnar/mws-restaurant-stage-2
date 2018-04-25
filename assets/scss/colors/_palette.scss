@@ -1,0 +1,34 @@
+@import "../helpers/functions";
+
+$black: (
+        'Devil': #666,
+        'Graphite': #444,
+        'darkGraphite': #333,
+        'Faded': #252831,
+        'Black': black,
+);
+// TODO black colors are ok, but why so many white? On some screens there won't be any difference
+$white: (
+        'White' : #fff,
+        'almostWhite': #fdfdfd,
+        'quiteWhite': #f3f3f3,
+        'lighterGray': #eee,
+        'Smoke': #ddd,
+        'Gray':#d9d9d9,
+        'lightGray': #ccc,
+        'anotherGray': #aaa,
+);
+
+$orange: (
+        'darkOrange': #f58500,
+        'deepOrange': #f18200,
+        'Orange': orange,
+);
+
+$blue: (
+        'lighterBlue': #3397DB,
+        'Turkus': #0275d8,
+        'Blue': blue,
+        'darkBlue': #01447e,
+        'darkerBlue': #014777,
+);

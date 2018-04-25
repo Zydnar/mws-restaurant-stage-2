@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block misc %}
+        <meta charset="UTF-8">
+        <meta name="description" content="Restaurant Reviews working offline.">
+        <link rel="manifest" href="manifest.json">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#252831"/>
+    {% endblock %}
+    {% block css %}
+        <link rel="stylesheet" type="text/css"
+              href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" media="nope!"
+              onload="this.media='all'"/>
+        <link rel="stylesheet" href="css/styles.css">
+    {% endblock %}
+    <title>Restaurant Reviews - {% block title %}{% endblock %}</title>
+</head>
+
+<body>
+{% block header %}
+    <header>
+        <nav role="navigation">
+            <h1><a href="/">Restaurant Reviews</a></h1>
+        </nav>
+    </header>
+{% endblock %}
+
+<main id="maincontent" role="main">
+    {% block body %}
+    {% endblock %}
+</main>
+
+{% block scripts %}
+    <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZyUeaJZv0dXSBsJqALEkJmS5nKRZJDuY&libraries=places&callback=initMap"></script>
+{% endblock %}
+{% block footer %}
+    <footer id="footer" role="contentinfo">
+        Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+    </footer>
+{% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+@import "../colors/palette";
+@import "../variables";
+@import "compass";
+
+/* ====================== Navigation ====================== */
+nav[role="navigation"] {
+  width: 100%;
+  height: 80px;
+  background-color: get_map_item($black, 'Faded');
+  text-align: center;
+  & h1 {
+    margin: auto;
+    height: 80px;
+    padding-top: 15px;
+  }
+  & h1 a {
+    color: get_map_item($white, 'White');
+    font-size: $nav_h1_f_size;
+    font-weight: 200;
+    letter-spacing: $nav_h1_txt_spacing;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+}
+
+#breadcrumb {
+  padding: $breadcrumb_pd_top $breadcrumb_pd_side $breadcrumb_pd_bottom;
+  list-style: none;
+  background-color: get_map_item($white, 'lighterGray');
+  font-size: $breadcrumb_f_size;
+  margin: 0;
+  width: $breadcrumb_width;
+
+  /* Display list items side by side */
+  & li {
+    display: inline;
+
+    /* Add a color to all links inside the list */
+    & a {
+      color: get_map_item($blue, Turkus);
+      text-decoration: none;
+
+      /* Add a color on mouse-over */
+      &:hover {
+        color: get_map_item($blue, 'darkBlue');
+        text-decoration: underline;
+      }
+    }
+  }
+  /* Add a slash symbol (/) before/behind each list item */
+  & li + li:before {
+    padding: $br_lili_pd;
+    color: get_map_item($black, 'Black');
+    content: "/\00a0";
+  }
+}
+
+

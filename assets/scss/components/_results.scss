@@ -1,0 +1,77 @@
+@import "compass";
+@import "../colors/palette";
+@import "../variables";
+
+/* ====================== Restaurant Listing ====================== */
+#restaurants-list {
+  background-color: get_map_item($white, quiteWhite);
+  list-style: outside none none;
+  margin: 0;
+  padding: $restaurant_list_pd_top $restaurant_list_pd_side $restaurant_list_pd_bottom;
+  text-align: center;
+  @include display-flex();
+  width: 100%;
+  @include justify-content(center);
+  @include flex-wrap(wrap);
+  & li {
+    background-color: get_map_item($white, 'White');
+    border: 2px solid get_map_item($white, 'lightGray');
+    font-family: Arial, sans-serif;
+    margin: $results_li_mg;
+    min-height: $results_li_min_height;
+    padding: 0;
+    text-align: left;
+    width: $results_li_width;
+    @include display-flex();
+    @include flex-wrap(wrap);
+    @include border-radius(15px 0 15px 0);
+    & > div {
+      width: 100%;
+      & > p {
+        padding: 0 10px;
+      }
+      & > h1 {
+        padding: 0 10px;
+      }
+    }
+  }
+  & .restaurant-img {
+    background-color: get_map_item($white, 'lightGray');
+    display: block;
+    margin: 0;
+    max-width: 100%;
+    /*min-height: $results_img_min_height;*/
+    min-width: 100%;
+    @include border-radius(15px 0 0 0);
+  }
+  & li h1 {
+    color: maroon;
+    font-family: Arial, sans-serif;
+    font-size: $results_lih1_f_size;
+    font-weight: 200;
+    letter-spacing: 0;
+    line-height: $results_lih1_l_height;
+    margin: 0;
+    padding: 10px 10px 20px 10px !important;
+    min-height: 79px;
+    text-transform: uppercase;
+  }
+  & p {
+    margin: 0;
+    font-size: $results_lip_f_size;
+  }
+  & li a {
+    background-color: maroon;
+    border-bottom: 3px solid get_map_item($white, lighterGray);
+    color: get_map_item($white, 'White');
+    display: table;
+    font-size: $results_lia_f_size;
+    padding: $results_lia_pd_top $results_lia_pd_side $results_lia_pd_bottom;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: auto;
+    margin-right: auto;
+    @include border-radius(3px);
+  }
+}

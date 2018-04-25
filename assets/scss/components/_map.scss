@@ -1,0 +1,36 @@
+@import "../colors/palette";
+
+/* ====================== Map ====================== */
+#map {
+  height: 400px;
+  width: 100%;
+  background-color: get_map_item($white, 'lightGray');
+}
+
+.inside {
+  & header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  & #map-container {
+    background: get_map_item($blue, 'Blue') none repeat scroll 0 0;
+    /* TODO fix not so responsive height */
+    height: 87%;
+    position: fixed;
+    right: 0;
+    top: 80px;
+    width: 50%;
+  }
+  & #map {
+    background-color: get_map_item($white, 'lightGray');
+    height: 100%;
+    width: 100%;
+  }
+  & #footer {
+    bottom: 0;
+    position: absolute;
+    width: 50%;
+  }
+}

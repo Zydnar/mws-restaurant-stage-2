@@ -1,0 +1,92 @@
+@import "../colors/palette";
+@import "../variables";
+@import "compass";
+
+/* ====================== Restaurant Details ====================== */
+
+#restaurant-name {
+  color: get_map_item($orange, 'deepOrange');
+  font-family: Arial, sans-serif;
+  font-size: $restaurant_name_f_size;
+  font-weight: 200;
+  letter-spacing: 0;
+  margin: 15px 0 30px;
+  text-transform: uppercase;
+  line-height: $restaurant_name_l_height;
+}
+
+#restaurant-img {
+  width: 90%;
+}
+
+#restaurant-address {
+  font-size: convert(12, pt, px);
+  margin: 10px 0;
+}
+
+#restaurant-cuisine {
+  background-color: get_map_item($black, 'darkGraphite');
+  color: get_map_item($white, 'Smoke');
+  font-size: $restaurant_cousine_f_size;
+  font-weight: 300;
+  letter-spacing: 10px;
+  margin: 0 0 $restaurant_cousine_margin_bottom;
+  padding: $restaurant_cousine_padding_vertical 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+#restaurant-container {
+  text-align: center;
+  & p:nth-of-type(2) {
+    text-align: left;
+  }
+}
+#restaurant-container, #reviews-container {
+  border-bottom: 1px solid get_map_item($white, 'Gray');
+  border-top: 1px solid get_map_item($white, 'White');
+  padding: 14px 10px 30px;
+  width: 50%;
+}
+
+#reviews-container {
+  padding: 30px 40px 40px;
+  & h2 {
+    color: get_map_item($orange, 'darkOrange');
+    font-size: 24pt;
+    font-weight: 300;
+    letter-spacing: -1px;
+    padding-bottom: 1pt;
+  }
+}
+
+#reviews-list {
+  margin: 0;
+  padding: 0;
+  & li {
+    background-color: get_map_item($white, 'White');
+    border: 2px solid get_map_item($white, 'quiteWhite');
+    display: block;
+    list-style-type: none;
+    margin: 0 0 30px;
+    overflow: hidden;
+    padding: 0 20px 20px;
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    @include border-radius(15px 0 15px 0);
+    .review-rating {
+      background: orange;
+      display: table;
+      padding: 2px 5px;
+      @include border-radius(3px);
+    }
+  }
+  & li p {
+    margin: 0 0 10px;
+  }
+}
+
+#restaurant-hours td {
+  color: get_map_item($black, 'Devil');
+}

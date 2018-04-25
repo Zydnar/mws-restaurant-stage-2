@@ -1,0 +1,95 @@
+@import "helpers/functions";
+
+$smallest_font: 16px;
+// Based on Foundation for Sites Settings
+// see: https://github.com/zurb/foundation-sites/blob/develop/scss/settings/_settings.scss
+$header-styles: (
+        small: (
+                'h1': ('font-size': 24),
+                'h2': ('font-size': 20),
+                'h3': ('font-size': 19),
+                'h4': ('font-size': 18),
+                'h5': ('font-size': 17),
+                'h6': ('font-size': 16),
+        ),
+        medium: (
+                'h1': ('font-size': 48),
+                'h2': ('font-size': 40),
+                'h3': ('font-size': 31),
+                'h4': ('font-size': 25),
+                'h5': ('font-size': 20),
+                'h6': ('font-size': 16),
+        ),
+);
+
+$breakpoints: (
+        small: 0,
+        medium: 640px,
+        large: 1024px,
+        xlarge: 1200px,
+        xxlarge: 1440px,
+);
+// END Foundation for Sites Settings
+/* ==============       filter        ============== */
+
+$filter_options_padding: 5px;
+/* h2 */
+$filter_h2_font_size: 1.2rem;
+$filter_h2_side_margins: 20px;
+/* select */
+$filter_select_height: 35px;
+$filter_select_margin: 10px;
+$filter_select_padding: $filter_select_margin;
+$filter_select_width: 200px;
+
+/* ==============       details       ============== */
+
+// TODO pt only for print
+$restaurant_name_f_size: convert(20, pt, px);
+$restaurant_name_l_height: 1.1;
+$restaurant_cousine_margin_bottom: 20px;
+$restaurant_cousine_padding_vertical: $restaurant_cousine_margin_bottom;
+$restaurant_cousine_f_size: convert(12, pt, px);
+$restaurant_adress_f_size: $restaurant_cousine_f_size;
+// TODO end this section
+
+/* ==============       results       ============== */
+
+// TODO pt only for print
+$restaurant_list_pd_top: 30px;
+$restaurant_list_pd_side: 10px;
+$restaurant_list_pd_bottom: 60px;
+/* li */
+$results_li_pd_side: 30px;
+$results_li_pd_bottom: 25px;
+$results_li_mg: 15px;
+$results_li_min_height: 380px;
+$results_li_width: 270px;
+$results_img_min_height: 248px;
+/* li h1 */
+$results_lih1_f_size: convert(14, pt, px);
+$results_lih1_l_height: 1.3;
+$results_lih1_mg_top: 20px;
+$results_lih1_mg_bottom: 10px;
+/* li p */
+$results_lip_f_size: convert(13, pt, px);
+/* li a */
+$results_lia_f_size: convert(12, pt, px);
+$results_lia_mg_top: 15px;
+$results_lia_pd_top: 8px;
+$results_lia_pd_side: 30px;
+$results_lia_pd_bottom: 10px;
+
+/* ==============      navigation      ============== */
+
+/* h1 */
+$nav_h1_f_size: 1rem; // TODO pt only for print
+$nav_h1_txt_spacing: 10px;
+/* breadcrumb */
+$breadcrumb_pd_top: 10px;
+$breadcrumb_pd_side: 14px;
+$breadcrumb_pd_bottom: 16px;
+$breadcrumb_f_size: 17px;
+$breadcrumb_width: 50%;
+/* li + li:before */
+$br_lili_pd: 8px;

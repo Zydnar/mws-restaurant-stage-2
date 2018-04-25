@@ -1,0 +1,46 @@
+@import "../colors/palette";
+@import "../variables";
+@import "compass";
+
+/* ====================== Restaurant Filtering ====================== */
+#filter-results {
+  display: table;
+  width: 100%;
+  .filter-options {
+    width: 100%;
+    background-color: get_map_item($blue, 'darkerBlue');
+    align-items: center;
+    @include display-flex();
+    @include flex-wrap(wrap);
+    padding: $filter_options_padding;
+    & label {
+      @include flex-grow(1);
+      width: 100%;
+      color: get_map_item($white, 'White');
+      margin: 0 5px 0 10px;
+    }
+    & h2 {
+      color: get_map_item($white, 'White');
+      font-size: $filter_h2_font_size;
+      font-weight: normal;
+      line-height: 1;
+      margin: 0 $filter_h2_side_margins;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      @include flex-grow(1);
+    }
+    & select {
+      background-color: get_map_item($white, 'White');
+      border: 1px solid get_map_item($white, 'White');
+      font-family: Arial, sans-serif;
+      font-size: $smallest_font;
+      height: $filter_select_height;
+      letter-spacing: 0;
+      margin: $filter_select_margin auto;
+      padding: 0 $filter_options_padding;
+      width: $filter_select_width;
+    }
+  }
+
+}
