@@ -239,43 +239,33 @@ class DBHelper {
      */
     static fetchRestaurantByCuisineAndNeighborhood(restaurants$, cuisine, neighborhood) {
         return restaurants$
-            .filter((r) => (cuisine !== 'all' && r.cuisine_type === cuisine || cuisine === 'all')
-                && (neighborhood !== 'all' && r.neighborhood === neighborhood || neighborhood === 'all')
+            .filter((r) => {return (cuisine !== 'all' && r.cuisine_type === cuisine || cuisine === 'all')
+                && (neighborhood !== 'all' && r.neighborhood === neighborhood || neighborhood === 'all')}
             );
     }
 
     /**
      * Fetch all neighborhoods with proper error handling.
      * @param {Observable} restaurants$
-     * @param callback {function}
      * @static
-     * @return {Subscription}
+     * @return {Observable<*>}
      */
-    static fetchNeighborhoods(restaurants$, callback) {
+    static fetchNeighborhoods(restaurants$) {
         return restaurants$
             .map(r => r.neighborhood)
             .distinct()
-            .subscribe(
-                (r) => callback(null, r),
-                (error) => callback(error, null)
-            );
     }
 
     /**
      * Fetch all cuisines with proper error handling.
      * @param {Observable} restaurants$
-     * @param callback {function}
      * @static
      * @return {Subscription}
      */
-    static fetchCuisines(restaurants$, callback) {
+    static fetchCuisines(restaurants$) {
         return restaurants$
             .map(r => r.cuisine_type)
             .distinct()
-            .subscribe(
-                (r) => callback(null, r),
-                (error) => callback(error, null)
-            );
     }
 
     /**
@@ -299,7 +289,7 @@ class DBHelper {
      * @param {Object} restaurant
      * @param {google.maps.Map} map
      * @static
-     * @return {Object}
+     * @return {google.maps.Marker}
      */
     static mapMarkerForRestaurant(restaurant, map) {
         return new google.maps.Marker(
