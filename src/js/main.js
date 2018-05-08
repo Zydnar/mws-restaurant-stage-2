@@ -2,6 +2,7 @@ import DBHelper from './dbhelper';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 /**
  * @class Restaurant
@@ -19,7 +20,7 @@ class Restaurant {
   /**
    * Sets state of Restaurant class
    * @param {Object} patch - Patch object
-   * @return {{restaurants: null, neighborhoods: Array, cuisines: Array, map: null, markers: Array, inexedDB: boolean}}
+   * @return {Object} Patched state
    */
   setState = (patch) => {
     return this.state = {
@@ -33,7 +34,6 @@ class Restaurant {
    * @return {Subscription}
    */
   fetchNeighborhoods = () => {
-    this.state.neighborhoods = [];
     const fetchN = (r) => {
       this.state.neighborhoods = [];
       return DBHelper
@@ -118,6 +118,13 @@ class Restaurant {
     DBHelper.createIndexedStores(DB, {restaurants: 'id++,name,neighborhood,cuisine_type'});
     this.resetRestaurants();
     return DBHelper.fetchRestaurants()
+      /*.catch(error=>{
+        if(error.message === 'ajax error 0'){
+          return Observable.from(
+            DB[DBHelper.DATABASE_NAME].toArray()
+          )
+        }
+      })*/
       .map(
         (restaurant) => {
           this.fillRestaurantsHTML(restaurant);
@@ -147,13 +154,20 @@ class Restaurant {
 
     const cuisine = cSelect[cIndex].value;
     const neighborhood = nSelect[nIndex].value;
-
+    const DB = DBHelper.createIndexedDB(DBHelper.DATABASE_NAME);
     // Remove all restaurants
     this.resetRestaurants();
     DBHelper.fetchRestaurantByCuisineAndNeighborhood(DBHelper.fetchRestaurants(), cuisine, neighborhood)
+      /*.catch(error=>{
+        if(error.message === 'ajax error 0'){
+          //todo fetch DB
+          DB.transaction('rw', DBHelper.DATABASE_NAME, (x)=>{
+            console.log(x)
+          });
+        }
+      })*/
       .subscribe(
         (r) => {
-          console.log(r);
           this.fillRestaurantsHTML(r);
         },
         (error) => console.error(error)

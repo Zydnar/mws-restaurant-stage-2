@@ -36,7 +36,7 @@ gulp.task('build', function () {
                 }
             )
         )
-        .pipe(isProduction?uglify():noop())
+        .pipe(uglify())
         .pipe(rename('main.js'))
         .pipe(isProduction?sourcemaps.write('./assets/js'):noop())
         .pipe(gulp.dest('./assets/js'));

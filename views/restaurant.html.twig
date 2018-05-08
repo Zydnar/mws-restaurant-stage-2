@@ -1,9 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ restaurant }}{% endblock %}
 {% block css %}
-    <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" media="nope!"
-          onload="this.media='all'"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" media="nope!" onload="this.media='all'"/>
     <link rel="stylesheet" href="../css/styles.css">
 {% endblock %}
 {% block header %}
@@ -17,7 +15,6 @@
         <nav aria-label="Breadcrumb">
             <ul id="breadcrumb" role="directory">
                 <li><a href="/">Home</a></li>
-                <li>{{ restaurant }}</li>
             </ul>
         </nav>
         <!-- End breadcrumb -->
@@ -48,6 +45,5 @@
 {% endblock %}
 {% block scripts %}
     <script type="application/javascript" charset="utf-8" src="../js/main.js"></script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZyUeaJZv0dXSBsJqALEkJmS5nKRZJDuY&libraries=places&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZyUeaJZv0dXSBsJqALEkJmS5nKRZJDuY&libraries=places&callback=initMap"></script>
 {% endblock %}

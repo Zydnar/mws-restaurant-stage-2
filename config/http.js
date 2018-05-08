@@ -30,23 +30,24 @@ module.exports.http = {
   *                                                                          *
   ***************************************************************************/
 
-    // order: [
-    //   'startRequestTimer',
-    //   'cookieParser',
-    //   'session',
-    //   'myRequestLogger',
-    //   'bodyParser',
-    //   'handleBodyParserError',
-    //   'compress',
-    //   'methodOverride',
-    //   'poweredBy',
-    //   '$custom',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    //   '404',
-    //   '500'
-    // ],
+    order: [
+      'startRequestTimer',
+      'cookieParser',
+      'session',
+      'myRequestLogger',
+      'bodyParser',
+      'handleBodyParserError',
+      'compress',
+      'compressed',
+      'methodOverride',
+      'poweredBy',
+      '$custom',
+      'router',
+      'www',
+      'favicon',
+      '404',
+      '500'
+    ],
 
   /****************************************************************************
   *                                                                           *
@@ -74,8 +75,15 @@ module.exports.http = {
   * middleware function).                                                    *
   *                                                                          *
   ***************************************************************************/
-
-    // bodyParser: require('skipper')({strict: true})
+  /*foobar: (function (){
+    console.log('Initializing `foobar` (HTTP middleware)...');
+    return function (req,res,next) {
+      console.log('Received HTTP request: '+req.method+' '+req.path);
+      return next();
+    };
+  })(),
+    // bodyParser: require('skipper')({strict: true})*/
+    compressed: require('compression')({level: 6})
 
   },
 

@@ -90,8 +90,16 @@ import DBHelper from "./dbhelper";
               )
             }
           );
-          R.fetchNeighborhoods();
-          R.fetchCuisines();
+          context.fetchNeighborhoods();
+          context.fetchCuisines();
+          google.maps.event.addListenerOnce(context.state.map, 'tilesloaded', function(){
+              setTimeout(function () {
+                const m = document.getElementById('maincontent');
+                const o = document.getElementById('overlay');
+                m.style.visibility = 'visible';
+                o.style.display = 'none';
+              }, 100);
+          });
         };
       case 'review':
         return self.initMap = () => context.fetchRestaurantFromURL(

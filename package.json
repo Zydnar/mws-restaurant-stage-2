@@ -15,7 +15,8 @@
   },
   "scripts": {
     "debug": "node inspect app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "build": "gulp build"
   },
   "main": "app.js",
   "repository": {

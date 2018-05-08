@@ -10,9 +10,7 @@
         <meta name="theme-color" content="#252831"/>
     {% endblock %}
     {% block css %}
-        <link rel="stylesheet" type="text/css"
-              href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" media="nope!"
-              onload="this.media='all'"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" media="nope!" onload="this.media='all'"/>
         <link rel="stylesheet" href="css/styles.css">
     {% endblock %}
     <title>Restaurant Reviews - {% block title %}{% endblock %}</title>
@@ -27,19 +25,21 @@
     </header>
 {% endblock %}
 
-<main id="maincontent" role="main">
+<div id="overlay" style="width: 100vw; height: 100vh; background: #333; position: absolute; top: 0; z-index: 99; display: block !important;">
+  <img src="img/loading.gif" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+</div>
+<main id="maincontent" role="main" style="visibility:hidden">
     {% block body %}
     {% endblock %}
 </main>
 
 {% block scripts %}
     <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZyUeaJZv0dXSBsJqALEkJmS5nKRZJDuY&libraries=places&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZyUeaJZv0dXSBsJqALEkJmS5nKRZJDuY&libraries=places&callback=initMap"></script>
 {% endblock %}
 {% block footer %}
     <footer id="footer" role="contentinfo">
-        Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+        <span>Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.</span>
     </footer>
 {% endblock %}
 

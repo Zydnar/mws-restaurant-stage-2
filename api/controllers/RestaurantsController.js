@@ -7,17 +7,19 @@ const Twig = require('twig');
  */
 
 module.exports = {
-    home: function (req, res) {
-        Twig.renderFile('./views/home.html.twig', req.params, function (err, html) {
-            if (err) throw err;
-            return res.send(html);
-        })
-    },
-    review: function (req, res) {
-        Twig.renderFile('./views/restaurant.html.twig', req.params, function (err, html) {
-            if (err) throw err;
-            return res.send(html);
-        })
-    }
+  home: function (req, res, next) {
+    Twig.renderFile('./views/home.html.twig', req.params, function (err, html) {
+      if (err) throw err;
+      const nospace = html.replace(/>\s+</g, '><');
+      return res.send(nospace);
+    })
+  },
+  review: function (req, res) {
+    Twig.renderFile('./views/restaurant.html.twig', req.params, function (err, html) {
+      if (err) throw err;
+      const nospace = html.replace(/>\s+</g, '><');
+      return res.send(nospace);
+    })
+  }
 };
 
