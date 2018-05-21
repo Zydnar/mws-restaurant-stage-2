@@ -1,5 +1,5 @@
 import DBHelper from "./dbhelper";
-import {createResponsiveImg} from './main';
+import {createResponsiveImg} from './Restaurant';
 
 class Review {
     state = {
@@ -27,7 +27,9 @@ class Review {
             const error = 'No restaurant id in URL';
             callback(error, null);
         } else {
-            DBHelper.fetchRestaurantById(id, (error, restaurant) => {
+            const DB = DBHelper.createIndexedDB(DBHelper.DATABASE_NAME);
+            DBHelper.createIndexedStores(DB, {restaurants: 'id++,name,neighborhood,cuisine_type'});
+            DBHelper.fetchRestaurantById(id, DB, (error, restaurant) => {
                 this.state.restaurant = restaurant;
                 if (!restaurant) {
                     console.error(error);

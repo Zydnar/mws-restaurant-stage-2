@@ -1,4 +1,4 @@
-import Restaurant from './main';
+import Restaurant from './Restaurant';
 import Review from "./restaurant_info";
 import DBHelper from "./dbhelper";
 
