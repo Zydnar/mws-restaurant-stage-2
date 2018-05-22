@@ -312,11 +312,12 @@ class DBHelper {
      * @static
      * @return {String}
      */
-    static imageUrlForRestaurant = (restaurant) => (`../../img/${restaurant.photograph}`);
+    static imageUrlForRestaurant = (restaurant) => (`./../img/${restaurant.photograph}`);
 
     /**
      * Map marker for a restaurant.
-     * @param {Object} restaurant
+     * @param {{name: String, neighborhood: String, photograph: String, address: String, latlng: Number,
+     * cuisine_type: String, operating_hours: String, reviews: Object}} restaurant - Restaurant Object
      * @param {google.maps.Map} map
      * @static
      * @return {google.maps.Marker}
