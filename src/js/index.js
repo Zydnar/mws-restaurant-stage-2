@@ -92,7 +92,7 @@ const setInitMap = (context, type) => {
                 );
                 context.fetchNeighborhoods();
                 context.fetchCuisines();
-                google.maps.event.addListenerOnce(context.state.map, 'tilesloaded', function () {
+                google.maps.event.addListenerOnce(context.state.map, 'idle', function () {
                     setTimeout(function () {
                         const m = document.getElementById('maincontent');
                         const o = document.getElementById('overlay');
@@ -139,6 +139,7 @@ const setInitMap = (context, type) => {
 switch (routeChecker()[0]) {
     case '/':
         const R = new Restaurant();
+        const toggleMapButton = document.getElementById('toggle-map');
         setInitMap(R, '/');
 
         cuisinesSelect.addEventListener('change', () => {
@@ -146,6 +147,14 @@ switch (routeChecker()[0]) {
         });
         neighborhoodsSelect.addEventListener('change', () => {
             R.updateRestaurants();
+        });
+        toggleMapButton.addEventListener('click', () => {
+            const map = document.getElementById('map');
+            if (map.style.display === 'none') {
+                map.style.display = 'block';
+            } else {
+                map.style.display = 'none';
+            }
         });
         break;
     case 'review':
