@@ -13,12 +13,14 @@
   width: 100%;
   @include justify-content(center);
   @include flex-wrap(wrap);
+  min-height: 100vh;
   & li {
     background-color: get_map_item($white, 'White');
     border: 2px solid get_map_item($white, 'lightGray');
     font-family: Arial, sans-serif;
     margin: $results_li_mg;
     min-height: $results_li_min_height;
+    max-height: 416px;
     padding: 0;
     text-align: left;
     width: $results_li_width;
