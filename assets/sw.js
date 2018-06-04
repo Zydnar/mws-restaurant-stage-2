@@ -21,7 +21,10 @@ addEventListener('install', function (event) {
         return cache.addAll(
           [
             '/',
-            '/img/placeholder.png',
+            '/img/placeholder.jpg',
+            '/img/placeholder-100-1x.jpg',
+            '/img/placeholder-100-2x.jpg',
+            '/img/placeholder-100-3x.jpg',
             '/sw.js',
             '/js/main.js',
             '/css/styles.css',
@@ -58,7 +61,7 @@ addEventListener('fetch', function (event) {
                 const file = splited[splited.length - 1];
                 if (file === 'undefined.jpg') {
                   //return default image if not present
-                  return caches.match('/img/placeholder.png').then(function (r) {
+                  return caches.match('/img/placeholder.jpg').then(function (r) {
                     if (r) return r;
                   });
                 } else if (splited[splited.length - 2] === 'restaurants') {

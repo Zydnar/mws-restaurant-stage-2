@@ -13,7 +13,7 @@ const noop = require('gulp-noop');
 const sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('compass', function () {
-    gulp.src('./assets/scss/styles.scss')
+    return gulp.src('./assets/scss/styles.scss')
         .pipe(
             compass(
                 {
@@ -27,7 +27,7 @@ gulp.task('compass', function () {
         .pipe(gulp.dest('./assets/css'));
 });
 gulp.task('build', function () {
-    gulp.src('./src/js/index.js')
+    return gulp.src('./src/js/index.js')
         .pipe(isProduction?sourcemaps.init():noop())
         .pipe(
             browserify(
@@ -51,7 +51,7 @@ gulp.task('watch', function () {
     watch('assets/src/**', ['js-watch']);
 });
 gulp.task('responsive-images', function () {
-    gulp.src('./assets/img/*.jpg')
+    return gulp.src('./assets/img/*.jpg')
         .pipe(responsive({
                              '*.jpg': [{
                                  width: 266,
