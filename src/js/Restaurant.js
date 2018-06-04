@@ -259,17 +259,18 @@ class Restaurant {
    * Generates responsive image HTML
    * @param url {string}
    * @param alt {string}
+   * @param {string} prefix - relative prefix to images eg. ./..
    * @return {string}
    */
-  static createResponsiveImg = (url, alt) => {
+  static createResponsiveImg = (url, alt, prefix='.') => {
     const parsedURL = url.split('.');
     const urlWithoutExt = parsedURL[parsedURL.length - 1];
     return `<picture class="restaurant-img">
   <source media="(max-width: 719px)"
-    srcset=".${urlWithoutExt}-100-1x.jpg 1x, .${urlWithoutExt}-100-2x.jpg 2x, .${urlWithoutExt}-100-3x.jpg 3x">
+    srcset="${prefix+urlWithoutExt}-100-1x.jpg 1x, ${prefix+urlWithoutExt}-100-2x.jpg 2x, ${prefix+urlWithoutExt}-100-3x.jpg 3x">
   <source  media="(min-width: 720px)"
     srcset=".${url}.jpg 1x">
-  <img class="restaurant-img" src=".${url}.jpg" alt="${alt}">
+  <img class="restaurant-img" src="${prefix+urlWithoutExt}.jpg" alt="${alt}">
 </picture>`;
 
   };

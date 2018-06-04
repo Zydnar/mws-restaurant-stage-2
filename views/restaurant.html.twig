@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ restaurant }}{% endblock %}
+{% block title %}{% if restaurant is defined %}{{ restaurant }}{% else %}review{% endif %}{% endblock %}
 {% block header %}
     <!-- Beginning header -->
     <header>
@@ -12,12 +12,16 @@
             <ul id="breadcrumb" role="directory">
                 <li><a href="/">Home</a></li>
             </ul>
+            <button id="toggle-map">Toggle map</button>
         </nav>
         <!-- End breadcrumb -->
         <!-- End nav -->
     </header>
     <!-- End header -->
 {% endblock %}
+{% block main %}
+<main id="maincontent" class="inside" role="main" style="visibility:hidden">
+    {% endblock %}
 {% block body %}
     <!-- Beginning map -->
     <section id="map-container">
@@ -38,8 +42,4 @@
         <ul id="reviews-list"></ul>
     </section>
     <!-- End reviews -->
-{% endblock %}
-{% block scripts %}
-    <script type="application/javascript" charset="utf-8" src="../js/main.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZyUeaJZv0dXSBsJqALEkJmS5nKRZJDuY&libraries=places&callback=initMap"></script>
 {% endblock %}

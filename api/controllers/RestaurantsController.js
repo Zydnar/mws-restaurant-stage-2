@@ -1,4 +1,7 @@
 const Twig = require('twig');
+const fs = require('fs');
+const DB = JSON.parse(fs.readFileSync('./.tmp/localDiskDb.db', {encoding: 'utf-8'}));
+
 /**
  * RestaurantsController
  *
@@ -7,19 +10,28 @@ const Twig = require('twig');
  */
 
 module.exports = {
-  home: function (req, res, next) {
-    Twig.renderFile('./views/home.html.twig', req.params, function (err, html) {
-      if (err) throw err;
-      const nospace = html.replace(/>\s+</g, '><');
-      return res.send(nospace);
-    })
-  },
-  review: function (req, res) {
-    Twig.renderFile('./views/restaurant.html.twig', req.params, function (err, html) {
-      if (err) throw err;
-      const nospace = html.replace(/>\s+</g, '><');
-      return res.send(nospace);
-    })
-  }
+    home: function (req, res, next) {
+        Twig.renderFile('./views/home.html.twig',
+            {
+                assetsPrefix: './'
+            }, function (err, html) {
+                if (err) throw err;
+                const nospace = html.replace(/>\s+</g, '><');
+                return res.send(nospace);
+            })
+    },
+    review: function (req, res, next) {
+        Twig.renderFile(
+            './views/restaurant.html.twig',
+            {
+                restaurant: DB.data.restaurants[req.params.restaurant].name + ' restaurant',
+                assetsPrefix: './../../'
+            }, function (err, html) {
+                if (err) throw err;
+                const nospace = html.replace(/>\s+</g, '><');
+                return res.send(nospace);
+            }
+        )
+    }
 };
 

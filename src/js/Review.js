@@ -30,10 +30,12 @@ class Review {
       const DB = DBHelper.createIndexedDB(DBHelper.DATABASE_NAME);
       DBHelper.createIndexedStores(DB, {restaurants: 'id++,name,neighborhood,cuisine_type'});
       DBHelper.fetchRestaurantById(id, DB, (error, restaurant) => {
-        this.state.restaurant = restaurant;
-        if (!restaurant) {
-          console.error(error);
-          return;
+          this.state.restaurant = restaurant;
+          DB[DBHelper.DATABASE_NAME].put(restaurant)
+              .catch(console.error);
+          if (!restaurant) {
+              console.error(error);
+              return;
         }
         this.fillRestaurantHTML();
         callback(null, restaurant)
@@ -53,7 +55,7 @@ class Review {
     address.innerHTML = restaurant.address;
 
     const image = document.getElementById('restaurant-img');
-    image.outerHTML = createResponsiveImg(DBHelper.imageUrlForRestaurant(restaurant), `Image of ${restaurant.name} restaurant`);
+    image.outerHTML = createResponsiveImg(DBHelper.imageUrlForRestaurant(restaurant), `Image of ${restaurant.name} restaurant`, './../..');
     const img = document.getElementsByClassName('restaurant-img')[1];
     img.id = 'restaurant-img';
 
@@ -133,7 +135,7 @@ class Review {
   fillBreadcrumb = (restaurant = this.state.restaurant) => {
     const breadcrumb = document.getElementById('breadcrumb');
     const li = document.createElement('li');
-    li.innerHTML = restaurant.name;
+    li.innerHTML = ` ${restaurant.name}`;
     breadcrumb.appendChild(li);
   };
 

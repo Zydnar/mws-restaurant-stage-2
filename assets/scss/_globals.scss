@@ -108,7 +108,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
       padding: 0 10px !important;
       width: 100% !important;
     }
-    #map-container {
+    #map {
       height: calc(100vh - 130px) !important;
       width: 100% !important;
       position: relative !important;
@@ -131,9 +131,6 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
     }
   }
   .inside {
-    #restaurant-container {
-      padding-top: 130px !important;
-    }
     #restaurant-img {
       width: 100% !important;
     }
@@ -164,14 +161,6 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
     #footer {
       position: relative !important;
       width: 100% !important;
-    }
-  }
-}
-
-@media screen and (min-width: 672px) {
-  .inside {
-    #restaurant-container {
-      padding-top: 130px !important;
     }
   }
 }

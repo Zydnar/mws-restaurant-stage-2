@@ -41,12 +41,12 @@
       padding: 0 $filter_options_padding;
       width: $filter_select_width;
     }
-    & > #toggle-map {
-      background: white;
-      border: 1px solid white;
-      margin-left: 10px;
-      height: 35px;
-    }
   }
 
+}
+#toggle-map {
+  background: white;
+  border: 1px solid white;
+  margin-left: 10px;
+  height: 35px;
 }

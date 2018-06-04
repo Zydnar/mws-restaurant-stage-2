@@ -123,7 +123,7 @@ const setInitMap = (context, type) => {
             DBHelper.mapMarkerForRestaurant(context.state.restaurant, context.state.map);
           }
 
-          google.maps.event.addListenerOnce(context.state.map, 'tilesloaded', function () {
+          google.maps.event.addListenerOnce(context.state.map, 'idle', function () {
             setTimeout(function () {
               const m = document.getElementById('maincontent');
               const o = document.getElementById('overlay');
@@ -139,10 +139,7 @@ const setInitMap = (context, type) => {
 switch (routeChecker()[0]) {
   case '/':
     const R = new Restaurant();
-    const toggleMapButton = document.getElementById('toggle-map');
     setInitMap(R, '/');
-    const map = document.getElementById('map');
-    map.style.display = 'none';
 
     cuisinesSelect.addEventListener('change', () => {
       R.updateRestaurants();
@@ -150,19 +147,26 @@ switch (routeChecker()[0]) {
     neighborhoodsSelect.addEventListener('change', () => {
       R.updateRestaurants();
     });
-    toggleMapButton.addEventListener('click', (event) => {
-      event.preventDefault();
-      if (map.style.display === 'none') {
-        map.style.display = 'block';
-      } else {
-        map.style.display = 'none';
-      }
-    });
     break;
   case 'review':
     const Rv = new Review();
     setInitMap(Rv, 'review');
     break;
 }
+//map performance fix
+const toggleMapButton = document.getElementById('toggle-map');
+const map = document.getElementById('map');
+const mapContainer = document.getElementById('map-container');
+map.style.display = 'none';
+toggleMapButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (map.style.display === 'none') {
+        map.style.display = 'block';
+        mapContainer.style.display = 'block';
+    } else {
+        map.style.display = 'none';
+        mapContainer.style.display = 'none';
+    }
+});
 //init service worker
 initSW();
