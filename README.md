@@ -1,4 +1,5 @@
 # Local Development API Server
+> For easier developement Sails server serves also assets from stage 1 of the project. Hence there is no need for additional server. More about stage 1 at: [https://github.com/Zydnar/mws-restaurant-stage-1](https://github.com/Zydnar/mws-restaurant-stage-1)
 ## Usage
 #### Get Restaurants
 ```
@@ -19,6 +20,7 @@ Local server
 - [Brandy Lee Camacho - Technical Project Manager](mailto:brandy.camacho@udacity.com)
 - [David Harris - Web Services Lead](mailto:david.harris@udacity.com)
 - [Omar Albeik - Frontend engineer](mailto:omaralbeik@gmail.com)
+- [Mateusz Abramek - Udacity student](mailto:shirkaen@gmail.com)
 
 ## Getting Started
 
@@ -34,6 +36,10 @@ Let's start with running commands in your terminal, known as command line interf
 ###### Install project dependancies
 ```Install project dependancies
 # npm i
+```
+or
+```
+# yarn
 ```
 ###### Install Sails.js globally
 ```Install sails global
