@@ -11,6 +11,18 @@ import 'rxjs/add/observable/fromEvent';
  * @class Restaurant
  */
 class Restaurant {
+  constructor(){
+    const loadImages = document.getElementById('load-restaurants');
+    loadImages.addEventListener('click', (event)=>{
+      event.preventDefault();
+        this.state.thumbnails.map((obj)=>{
+            obj.HTML[0].innerHTML = obj.HTML[1] + obj.HTML[0].innerHTML;
+            this.fillRestaurantsHTML(obj.HTML[0]);
+            //not pure, but easier
+            obj.visible = true;
+        });
+    });
+  }
 
   state = {
     restaurants: null,
