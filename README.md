@@ -4,7 +4,7 @@ First change working directory to folder, where you want to clone the project.
 ```bash
 $ git clone https://github.com/Zydnar/mws-restaurant-stage-2.git
 ```
-Install node dependencies:
+Change directory to project folder and Install node dependencies:
 ```bash
 $ yarn
 ```
